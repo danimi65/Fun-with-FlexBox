@@ -1,17 +1,203 @@
 // Imports
 
-
+@import "./partials/clearfix";
+@import "./partials/reset";
+@import "./partials/general_styles";
 
 // 1. Many small items in a grid
+.small-grid-flexbox {
+  background-color: white;
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+  
+  @include respond-to('medium'){
+    width: 400px;
+    margin: auto;
+
+  }
+
+  li {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+    flex: 0 0 10%; // 10 x 10% + the border is > 100% (this means that it wont change sizing regardless of screen size)
+
+  }
+
+  }
+
+}
 
 
 
 // 2. 2-Column Grid
+
+.two-col-grid{
+
+  @include respond-to('medium'){
+    display: flex;
+    flex-flow: row wrap;
+
+}
+  
+
+  .column-1{
+      box-sizing: border-box;
+
+    @include respond-to('medium'){
+      flex: 0 0 50%;
+      order: 2;
+    }
+
+  }
+
+  .column-2{
+
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      flex: 0 0 50%;
+      order: 1;
+
+
+  }
+
+
+
+}
+
+}
+
+
+
 
 
 
 // 3. Centering
 
 
+.centering-formula-1{
+  display:flex;
+flex-flow: row nowrap;
+justify-content: center;
+align-items: center;
+
+  .centered{
+    flex: 0 0 auto;
+  }
+}
+
+.centering-formula-2{
+  display:flex;
+flex-flow: row nowrap;
+justify-content: center;
+align-items: center;
+
+  .centered{
+    margin: auto;
+    flex: 0 0 auto;
+  }
+}
+
+
 
 // 4. Ordering
+
+
+
+.ordering-block{
+  // flex: 0 0 100%;
+  flex-flow: nowrap;
+  
+  @include respond-to('medium'){
+    display: flex;
+    flex: 0 0 100%;
+    flex-flow: nowrap;
+  }
+
+  @include respond-to('large'){
+    justify-content: space-between;
+  }
+
+  .item{
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    &.item-a{
+      order: 3;
+
+    @include respond-to('medium'){
+        flex: 0 0 10%;
+        order: 1;
+      }
+
+      @include respond-to('large'){
+        flex: 0 0 5%;
+        order: 4;
+      }
+
+
+    }
+
+    &.item-b{
+      order: 2;
+
+      @include respond-to('medium'){
+        flex: 0 0 10%;
+        order: 2;
+      }
+
+      @include respond-to('large'){
+        flex: 0 0 5%;
+        order: 3;
+      }
+      
+    }
+
+    &.item-c{
+      order: 1;
+
+      @include respond-to('medium'){
+        flex: 0 0 5%;
+        order: 3;
+      }
+
+      @include respond-to('large'){
+        flex: 0 0 5%;
+        order: 2;
+      }
+      
+    }
+
+    &.item-d{
+      order: 4;
+
+      @include respond-to('medium'){
+        flex: 0 0 30%;
+        order: 4;
+      }
+
+      @include respond-to('large'){
+        flex: 0 0 5%;
+        order: 1;
+      }
+      
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
